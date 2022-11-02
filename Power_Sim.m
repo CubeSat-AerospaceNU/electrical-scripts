@@ -8,26 +8,26 @@ solarVals = num2cell([1,2,3]);
 [solarMax, solarMin, solarAvg] = deal(solarVals{:});
 
 % onboard computer
-obcVals = num2cell([1,2,3]);
+obcVals = num2cell([1,8,4]);
 [obcMin, obcMax, obcAvg] = deal(obcVals{:});
 
 % altitude control device
-adcsVals = num2cell([1,2,3]);
+adcsVals = num2cell([0,1,1]);
 [adcsMin, adcsMax, adcsAvg] = deal(adcsVals{:});
 
 % receivers (main then THz)
-recVals = num2cell([1,2,3]);
+recVals = num2cell([0,0.5,0.3]);
 [recMin, recMax, recAvg] = deal(recVals{:});
 
-TrecVals = num2cell([1,2,3]);
+TrecVals = num2cell([0,1,0.6]);
 [TrecMin, TrecMax, TrecAvg] = deal(TrecVals{:});
 
 
 % transmitters
-tranVals = num2cell([1,2,3]);
+tranVals = num2cell([0,4.5,4]);
 [tranMin, tranMax, tranAvg] = deal(tranVals{:});
 
-TtranVals = num2cell([1,2,3]);
+TtranVals = num2cell([0,9,8]);
 [TtranMin, TtranMax, TtranAvg] = deal(TtranVals{:});
 
 % TODO: add the runtimes 
@@ -44,8 +44,3 @@ worstCase = solar - obcMax - adcsMax - recMax - tranMax - TrecMax - TtranMax == 
 %% Get the results
 solSolar = solve(worstCase, solar,'Real',true);
 double(solSolar);
-%print(A);
-%[A] = equationsToMatrix([worstCase], [solar])
-%res = linsolve(A)
-
-%print(res);
