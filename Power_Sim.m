@@ -22,7 +22,6 @@ recVals = num2cell([0,0.5,0.3]);
 TrecVals = num2cell([0,1,0.6]);
 [TrecMin, TrecMax, TrecAvg] = deal(TrecVals{:});
 
-
 % transmitters
 tranVals = num2cell([0,4.5,4]);
 [tranMin, tranMax, tranAvg] = deal(tranVals{:});
@@ -31,6 +30,11 @@ TtranVals = num2cell([0,9,8]);
 [TtranMin, TtranMax, TtranAvg] = deal(TtranVals{:});
 
 % TODO: add the runtimes 
+
+%% Finding min, max, avg instantaneous consumption
+max = obcMax+adcsMax+recMax+TrecMax+tranMax+TtranMax;
+min = obcMin+adcsMin+recMin+TrecMin+tranMin+TtranMin;
+%sprintf("Max instantaneous power consumption of approx: %f",min);
 
 %% Solve the system of equations for power needs
 syms solar;
